@@ -2,27 +2,29 @@
 <html>
 
 <head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta charset="UTF-8">
-  <title>Tiempo de pantallas?</title>
-  <link rel="stylesheet" type="text/css" href="vendor/pageable/pageable.min.css" />
+  <title>¿cuanto tiempo te roba tu móvil?</title>
   <link rel="stylesheet" type="text/css" href="style.css" />
 </head>
 
 <body>
   <main id="container">
-    <section data-anchor="Page 1">
+    <section id="page-1">
       <div class="text">
         <label for="userName">¿Como te llamas?</label>
         <input type="text" id="userName" placeholder="tu nombre" onblur="onChangeName()">
       </div>
+      <div data-scroll class="next arrow"></div>
     </section>
-    <section data-anchor="Page 2">
+    <section id="page-2">
       <div class="text">
         <label for="userAge">Hola <span class="user-name"></span>, ¿cuantos años tienes?</label>
         <input type="number" min="5" max="90" id="userAge" placeholder="tu edad" onblur="onChangeAge()">
       </div>
+      <div data-scroll class="next arrow"></div>
     </section>
-    <section data-anchor="Page 3">
+    <section id="page-3">
       <div class="text">
         <label for="userMobileUsage"><span class="user-name"></span> ¿Cuanto tiempo usas el móvil al día?</label>
         <select id="userMobileUsage" onchange="onChangeMobileUsage()">
@@ -46,10 +48,11 @@
           <option value="99999">más de 8 horas</option>
         </select>
       </div>
+      <div data-scroll class="next arrow"></div>
     </section>
   </main>
 
-  <script src="vendor/pageable/pageable.min.js"></script>
+  <script src="vendor/smooth-scroll.polyfills.js"></script>
   <script src="vendor/humanize-duration.js"></script>
   <script src="app.js"></script>
 </body>

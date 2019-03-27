@@ -4,7 +4,6 @@ var user = {
   usage: null
 }
 
-var pageable;
 var deadAge = 90;
 
 var forEach = function(arr, callback) {
@@ -14,36 +13,17 @@ var forEach = function(arr, callback) {
 function onChangeName() {
   user.name = document.getElementById('userName').value;
   refreshPages();
-  if (user.name) {
-    pageable.next();
-  }
+  if (user.name) {}
 }
 
 function onChangeAge() {
   user.age = document.getElementById('userAge').value;
   refreshPages();
-  pageable.next();
 }
 
 function onChangeMobileUsage() {
   user.usage = parseInt(document.getElementById('userMobileUsage').value, 10);
   refreshPages();
-  pageable.next();
-}
-
-function _refreshPageable() {
-  if (pageable) {
-    pageable.destroy();
-  }
-  pageable = new Pageable("#container", {
-    animation: 300,
-    events: {
-      wheel: true, // enable / disable mousewheel scrolling
-      mouse: false, // enable / disable mouse drag scrolling
-      touch: true, // enable / disable touch / swipe scrolling
-      keydown: true, // enable / disable keyboard navigation
-    },
-  });
 }
 
 function _refreshName() {
@@ -59,8 +39,16 @@ function _addSection(sectionName, text) {
     section.parentNode.removeChild(section);
   }
   section = document.createElement('section');
-  section.setAttribute('data-anchor', sectionName);
+  section.setAttribute('id', sectionName);
   section.innerHTML = '<div class="text"><div>' + text + '</div></div>';
+
+  var next = document.createElement('div');
+  next.setAttribute('class', 'next arrow');
+  next.setAttribute('data-scroll', 'data-scroll');
+  next.addEventListener('click', nextSection);
+
+  section.appendChild(next);
+
   document.querySelector('main').appendChild(section);
 }
 
@@ -121,6 +109,12 @@ function _refreshLifeUsage() {
   _addSection('lifeusage', '<span class="user-name">' + user.name + '</span> si no cambias tus hábitos,<br> cuando mueras habrás perdido ' + lifeUsage + " delante de la pantalla de tu móvil 😱");
 }
 
+function nextSection(event) {
+  var nextSection = event.target.parentNode.nextElementSibling;
+  var scroll = new SmoothScroll();
+  scroll.animateScroll(nextSection);
+}
+
 function refreshPages() {
   _refreshName();
   _refreshWeekUsage();
@@ -128,10 +122,17 @@ function refreshPages() {
   _refreshYearUsage();
   _refreshLifeRemain();
   _refreshLifeUsage();
-  _refreshPageable();
+}
+var scroll;
+
+function init() {
+  onChangeName();
+  onChangeAge();
+  onChangeMobileUsage();
+  var nextButtons = document.getElementsByClassName('next');
+  forEach(nextButtons, function(button) {
+    button.addEventListener('click', nextSection);
+  });
 }
 
-onChangeName();
-onChangeAge();
-onChangeMobileUsage();
-pageable.scrollToIndex(0);
+init();
