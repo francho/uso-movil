@@ -106,7 +106,7 @@ function _refreshLifeUsage() {
 
   var remainYears = deadAge - user.age;
   var lifeUsage = _humanize(remainYears * user.usage * 365);
-  _addSection('lifeusage', '<span class="user-name">' + user.name + '</span> si no cambias tus hábitos,<br> cuando mueras habrás perdido ' + lifeUsage + " delante de la pantalla de tu móvil 😱");
+  _addSection('lifeusage', '<span class="user-name">' + user.name + '</span> si no cambias tus hábitos, cuando mueras habrás perdido ' + lifeUsage + " delante de la pantalla de tu móvil 😱");
 }
 
 function nextSection(event) {

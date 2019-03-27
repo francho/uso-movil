@@ -5,12 +5,13 @@ html, body {
 body {
   margin: 0;
   font-family: Circular, Helvetica, Arial, sans-serif;
-  font-size: 2.5rem;
+  font-size: 1.5rem;
   font-weight: 100;
   background-color: #2a2a2a;
 }
 
 .arrow {
+  align-self: center;
   border: solid #dddddd;
   border-width: 0 3px 3px 0;
   display: inline-block;
@@ -60,11 +61,11 @@ section {
   display: flex;
   display: -webkit-flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   flex-flow: column;
   color: #fff;
   position: relative;
-  height: 100%;
+  min-height: 100%;
 }
 
 input, select {
@@ -92,13 +93,13 @@ option {
 }
 
 .text {
-  width: 80%;
+  width: 94%;
   height: 100%;
   display: flex;
-  display: -webkit-flex;
   align-items: center;
   justify-content: center;
   flex-flow: column;
+  flex-grow: 1;
 }
 
 .text div {
@@ -145,7 +146,7 @@ dl {
 }
 
 dt {
-  flex-basis: 45%;
+  flex-basis: 25%;
   padding: 2px 4px;
   text-align: right;
   color: #FF9999;
@@ -154,7 +155,7 @@ dt {
 }
 
 dd {
-  flex-basis: 45%;
+  flex-basis: 65%;
   flex-grow: 1;
   margin: 0;
   padding: 2px 4px;
@@ -165,29 +166,29 @@ dd {
 }
 
 dt:nth-child(1), dd:nth-child(2) {
-  font-size: 4rem;
+  font-size: 3rem;
 }
 
 dt:nth-child(3), dd:nth-child(4) {
-  font-size: 2.8rem;
-}
-
-dt:nth-child(5), dd:nth-child(6) {
-  font-size: 2.6rem;
-}
-
-dt:nth-child(7), dd:nth-child(8) {
-  font-size: 2.4rem;
-}
-
-dt:nth-child(9), dd:nth-child(10) {
-  font-size: 2.2rem;
-}
-
-dt:nth-child(11), dd:nth-child(12) {
   font-size: 2rem;
 }
 
-dt:nth-child(13), dd:nth-child(14) {
+dt:nth-child(5), dd:nth-child(6) {
   font-size: 1.8rem;
+}
+
+dt:nth-child(7), dd:nth-child(8) {
+  font-size: 1.6rem;
+}
+
+dt:nth-child(9), dd:nth-child(10) {
+  font-size: 1.4rem;
+}
+
+dt:nth-child(11), dd:nth-child(12) {
+  font-size: 1.2rem;
+}
+
+dt:nth-child(13), dd:nth-child(14) {
+  font-size: 1rem;
 }
