@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Tiempo de pantallas?</title>
+  <link rel="stylesheet" type="text/css" href="vendor/pageable/pageable.min.css" />
+  <link rel="stylesheet" type="text/css" href="style.css" />
+</head>
+
+<body>
+  <main id="container">
+    <section data-anchor="Page 1">
+      <div class="text">
+        <label for="userName">¿Como te llamas?</label>
+        <input type="text" id="userName" placeholder="tu nombre" onblur="onChangeName()">
+      </div>
+    </section>
+    <section data-anchor="Page 2">
+      <div class="text">
+        <label for="userAge">Hola <span class="user-name"></span>, ¿cuantos años tienes?</label>
+        <input type="number" min="5" max="90" id="userAge" placeholder="tu edad" onblur="onChangeAge()">
+      </div>
+    </section>
+    <section data-anchor="Page 3">
+      <div class="text">
+        <label for="userMobileUsage"><span class="user-name"></span> ¿Cuanto tiempo usas el móvil al día?</label>
+        <select id="userMobileUsage" onchange="onChangeMobileUsage()">
+          <option value="" disabled selected>de media lo uso...</option>
+          <option value="30">Media hora</option>
+          <option value="60">1 hora</option>
+          <option value="90">1 hora y media</option>
+          <option value="120">2 horas</option>
+          <option value="150">2 horas y media</option>
+          <option value="180">3 horas</option>
+          <option value="210">3 horas y media</option>
+          <option value="240">4 horas</option>
+          <option value="270">4 horas y media</option>
+          <option value="300">5 horas</option>
+          <option value="330">5 horas y media</option>
+          <option value="360">6 horas</option>
+          <option value="390">6 horas y media</option>
+          <option value="420">7 horas</option>
+          <option value="450">7 horas y media</option>
+          <option value="480">8 horas</option>
+          <option value="99999">más de 8 horas</option>
+        </select>
+      </div>
+    </section>
+  </main>
+
+  <script src="vendor/pageable/pageable.min.js"></script>
+  <script src="vendor/humanize-duration.js"></script>
+  <script src="app.js"></script>
+</body>
+
+</html>

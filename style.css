@@ -1,0 +1,138 @@
+body {
+  margin: 0;
+  font-family: Circular, Helvetica, Arial, sans-serif;
+  font-size: 2.5em;
+  font-weight: 100;
+  overflow: hidden;
+  background-color: #2a2a2a;
+}
+
+section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-flow: row;
+  color: #fff;
+  position: relative;
+}
+
+input, select {
+  margin-top: 20px;
+  display: flex;
+  height: calc(4rem + 2px);
+  padding: 0.375rem 0.75rem;
+  font-size: 2rem;
+  line-height: 1.5;
+  color: #7b8a8b;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 0;
+  border-radius: 0.25rem;
+  -webkit-transition: border-color 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
+  transition: border-color 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
+}
+
+option {
+  font-size: 2rem;
+}
+
+.text {
+  width: 80%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-flow: column;
+}
+
+.text div {
+  text-align: center;
+}
+
+#page-1 {
+  background-color: #3F51B5;
+}
+
+#page-2 {
+  background-color: #673AB7;
+}
+
+#page-3 {
+  background-color: #9C27B0;
+}
+
+#weekusage {
+  background-color: #4CAF50;
+}
+
+#monthusage {
+  background-color: #A2A000;
+}
+
+#yearusage {
+  background-color: #C98206;
+}
+
+#lifeusage {
+  background-color: #C92F06;
+}
+
+.user-name, strong {
+  color: #FF9999;
+}
+
+dl {
+  display: flex;
+  flex-flow: row wrap;
+  width: 100%;
+}
+
+dt {
+  flex-basis: 45%;
+  padding: 2px 4px;
+  text-align: right;
+  color: #FF9999;
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+dd {
+  flex-basis: 45%;
+  flex-grow: 1;
+  margin: 0;
+  padding: 2px 4px;
+  font-weight: 100;
+  color: #ffffff;
+  font-size: 1rem;
+  text-align: left;
+}
+
+dt:nth-child(1), dd:nth-child(2) {
+  font-size: 4rem;
+}
+
+dt:nth-child(3), dd:nth-child(4) {
+  font-size: 2.8rem;
+}
+
+dt:nth-child(5), dd:nth-child(6) {
+  font-size: 2.6rem;
+}
+
+dt:nth-child(7), dd:nth-child(8) {
+  font-size: 2.4rem;
+}
+
+dt:nth-child(9), dd:nth-child(10) {
+  font-size: 2.2rem;
+}
+
+dt:nth-child(11), dd:nth-child(12) {
+  font-size: 2rem;
+}
+
+dt:nth-child(13), dd:nth-child(14) {
+  font-size: 1.8rem;
+}
