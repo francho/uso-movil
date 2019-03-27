@@ -5,6 +5,7 @@ var user = {
 }
 
 var deadAge = 90;
+var scroll;
 
 var forEach = function(arr, callback) {
   Array.prototype.forEach.call(arr, callback);
@@ -12,25 +13,21 @@ var forEach = function(arr, callback) {
 
 function onChangeName() {
   user.name = document.getElementById('userName').value;
+  var nameContainers = document.getElementsByClassName('user-name');
+  forEach(nameContainers, function(nameContainer) {
+    nameContainer.textContent = user.name;
+  });
   refreshPages();
-  if (user.name) {}
 }
 
 function onChangeAge() {
-  user.age = document.getElementById('userAge').value;
+  user.age = parseInt(document.getElementById('userAge').value);
   refreshPages();
 }
 
 function onChangeMobileUsage() {
   user.usage = parseInt(document.getElementById('userMobileUsage').value, 10);
   refreshPages();
-}
-
-function _refreshName() {
-  var nameContainers = document.getElementsByClassName('user-name');
-  forEach(nameContainers, function(nameContainer) {
-    nameContainer.textContent = user.name;
-  });
 }
 
 function _addSection(sectionName, text) {
@@ -60,10 +57,11 @@ function _humanize(minutes) {
   });
 
   var parts = humanized.split(',');
+  var template = '<div class="row"><div class="col number">$1</div><div class="col">$2</div></div>';
   var partsHtml = parts.map(function(part) {
-    return part.replace(/([^ ]+) (.*)/mg, "<dt>$1</dt><dd>$2</dd>");
+    return part.replace(/([^ ]+) (.*)/mg, template);
   })
-  return "<dl>" + partsHtml.join('') + "</dl>";
+  return '<div class="grid">' + partsHtml.join('') + "</div>";
 }
 
 function _refreshWeekUsage() {
@@ -71,7 +69,7 @@ function _refreshWeekUsage() {
     return;
   }
   var weekUsage = _humanize(user.usage * 7);
-  _addSection('weekusage', '<span class="user-name">' + user.name + '</span> pasas ' + weekUsage + " a la semana con tu 📱");
+  _addSection('weekusage', '<span class="user-name">' + user.name + '</span>, así que pasas ' + weekUsage + " a la semana con tu móvil 🤔");
 }
 
 function _refreshMonthUsage() {
@@ -79,7 +77,7 @@ function _refreshMonthUsage() {
     return;
   }
   var monthUsage = _humanize(user.usage * 31);
-  _addSection('monthusage', '<span class = "user-name" > ' + user.name + ' </span> tu 📱 te roba' + monthUsage + " al mes ");
+  _addSection('monthusage', '<span class = "user-name" > ' + user.name + ' </span> tu móvil te roba' + monthUsage + " al mes 😬");
 }
 
 function _refreshYearUsage() {
@@ -87,7 +85,7 @@ function _refreshYearUsage() {
     return;
   }
   var yearUsage = _humanize(user.usage * 365);
-  _addSection('yearusage', '<span class = "user-name" > ' + user.name + ' </span> este año estarás' + yearUsage + " delante de tu 📱");
+  _addSection('yearusage', '<span class = "user-name" > ' + user.name + ' </span> este año estarás' + yearUsage + " delante de tu móvil 😖");
 }
 
 function _refreshLifeRemain() {
@@ -111,21 +109,29 @@ function _refreshLifeUsage() {
 
 function nextSection(event) {
   var nextSection = event.target.parentNode.nextElementSibling;
-  var scroll = new SmoothScroll();
   scroll.animateScroll(nextSection);
 }
 
 function refreshPages() {
-  _refreshName();
-  _refreshWeekUsage();
-  _refreshMonthUsage();
-  _refreshYearUsage();
-  _refreshLifeRemain();
-  _refreshLifeUsage();
+  if (!user.name) {
+    scroll.animateScroll(document.getElementById('page-1'));
+  } else if (!user.age) {
+    scroll.animateScroll(document.getElementById('page-2'));
+  } else if (!user.usage) {
+    scroll.animateScroll(document.getElementById('page-3'));
+  } else {
+    _refreshWeekUsage();
+    _refreshMonthUsage();
+    _refreshYearUsage();
+    _refreshLifeRemain();
+    _refreshLifeUsage();
+    scroll.animateScroll(document.getElementById('weekusage'));
+  }
 }
-var scroll;
+
 
 function init() {
+  scroll = new SmoothScroll();
   onChangeName();
   onChangeAge();
   onChangeMobileUsage();

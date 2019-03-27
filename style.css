@@ -102,7 +102,7 @@ option {
   flex-grow: 1;
 }
 
-.text div {
+.text:first-child {
   text-align: center;
 }
 
@@ -134,61 +134,63 @@ option {
   background-color: #C92F06;
 }
 
-.user-name, strong {
+strong {
   color: #FF9999;
 }
 
-dl {
-  display: flex;
-  display: -webkit-flex;
-  flex-flow: row wrap;
-  width: 100%;
+.grid {
+  margin: 15px;
+  font-size: 1rem;
+  width: 100%
 }
 
-dt {
-  flex-basis: 25%;
-  padding: 2px 4px;
+.row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.col {
+  display: flex;
+  flex-direction: column;
+  flex-basis: 100%;
+  flex: 8;
+  text-align: left;
+  padding: 4px;
+}
+
+.col.number {
   text-align: right;
+  flex: 2;
   color: #FF9999;
   font-weight: bold;
-  font-size: 1rem;
+  text-align: right;
 }
 
-dd {
-  flex-basis: 65%;
-  flex-grow: 1;
-  margin: 0;
-  padding: 2px 4px;
-  font-weight: 100;
-  color: #ffffff;
-  font-size: 1rem;
-  text-align: left;
-}
-
-dt:nth-child(1), dd:nth-child(2) {
+.row:nth-child(1) {
   font-size: 3rem;
 }
 
-dt:nth-child(3), dd:nth-child(4) {
+.row:nth-child(2) {
   font-size: 2rem;
 }
 
-dt:nth-child(5), dd:nth-child(6) {
+.row:nth-child(3) {
   font-size: 1.8rem;
 }
 
-dt:nth-child(7), dd:nth-child(8) {
+.row:nth-child(4) {
   font-size: 1.6rem;
 }
 
-dt:nth-child(9), dd:nth-child(10) {
+.row:nth-child(5) {
   font-size: 1.4rem;
 }
 
-dt:nth-child(11), dd:nth-child(12) {
+.row:nth-child(6) {
   font-size: 1.2rem;
 }
 
-dt:nth-child(13), dd:nth-child(14) {
+.row:nth-child(7) {
   font-size: 1rem;
 }

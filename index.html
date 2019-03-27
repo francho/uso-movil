@@ -12,21 +12,21 @@
   <main id="container">
     <section id="page-1">
       <div class="text">
-        <label for="userName">¿Como te llamas?</label>
+        <label for="userName">¿cómo te llamas?</label>
         <input type="text" id="userName" placeholder="tu nombre" onblur="onChangeName()">
       </div>
       <div data-scroll class="next arrow"></div>
     </section>
     <section id="page-2">
       <div class="text">
-        <label for="userAge">Hola <span class="user-name"></span>, ¿cuantos años tienes?</label>
+        <label for="userAge">hola <span class="user-name"></span><br />¿cuantos años tienes?</label>
         <input type="number" min="5" max="90" id="userAge" placeholder="tu edad" onblur="onChangeAge()">
       </div>
       <div data-scroll class="next arrow"></div>
     </section>
     <section id="page-3">
       <div class="text">
-        <label for="userMobileUsage"><span class="user-name"></span> ¿Cuanto tiempo usas el móvil al día?</label>
+        <label for="userMobileUsage"><span class="user-name"></span> ¿cuanto tiempo usas el móvil al día?</label>
         <select id="userMobileUsage" onchange="onChangeMobileUsage()">
           <option value="" disabled selected>de media lo uso...</option>
           <option value="30">Media hora</option>
@@ -45,7 +45,6 @@
           <option value="420">7 horas</option>
           <option value="450">7 horas y media</option>
           <option value="480">8 horas</option>
-          <option value="99999">más de 8 horas</option>
         </select>
       </div>
       <div data-scroll class="next arrow"></div>
