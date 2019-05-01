@@ -138,6 +138,34 @@ strong {
   color: #FF9999;
 }
 
+a:link {
+  color: #FF9999;
+}
+
+a:visited {
+  color: #FF9999;
+}
+
+a:hover {
+  color: #FF9999;
+}
+
+a:active {
+  color: #FF9999;
+}
+
+.is-hidden {
+  display: none;
+}
+
+#no-se {
+  width: 60%;
+  font-size: .9rem;
+  text-align: left;
+}
+
+#no-se-button {}
+
 .grid {
   margin: 15px;
   font-size: 1rem;

@@ -139,6 +139,11 @@ function init() {
   forEach(nextButtons, function(button) {
     button.addEventListener('click', nextSection);
   });
+  document.getElementById('no-se-button').addEventListener('click', function(event) {
+    event.preventDefault();
+    event.target.classList.add('is-hidden');
+    document.getElementById('no-se').classList.remove('is-hidden');
+  });
 }
 
 init();
