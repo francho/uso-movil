@@ -107,6 +107,13 @@ function _refreshLifeUsage() {
   _addSection('lifeusage', '<span class="user-name">' + user.name + '</span> si no cambias tus hábitos, cuando mueras habrás perdido ' + lifeUsage + " delante de la pantalla de tu móvil 😱");
 }
 
+function _refreshEnd() {
+  if (!user.usage || !user.age) {
+    return;
+  }
+  _addSection('theend', '<span class="user-name">' + user.name + '</span> ¡cambia tu relación con la tecnología!<p>recupera el control</p><p><a href="http://francho.org/2019/05/01/5-consejos-para-usar-el-movil/">yo, ya he empezado</a></p>');
+}
+
 function nextSection(event) {
   var nextSection = event.target.parentNode.nextElementSibling;
   scroll.animateScroll(nextSection);
@@ -125,6 +132,7 @@ function refreshPages() {
     _refreshYearUsage();
     _refreshLifeRemain();
     _refreshLifeUsage();
+    _refreshEnd();
     scroll.animateScroll(document.getElementById('weekusage'));
   }
 }
